@@ -1,0 +1,47 @@
+{
+  "name": "next-app-router-template",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "db:generate": "drizzle-kit generate:pg",
+    "db:migrate": "node ./src/server/db/migrate.mjs"
+  },
+  "dependencies": {
+    "@auth/core": "0.12.0",
+    "@auth/drizzle-adapter": "0.3.1",
+    "@hookform/resolvers": "3.2.0",
+    "@tanstack/react-query": "4.32.6",
+    "@trpc/client": "10.37.1",
+    "@trpc/react-query": "10.37.1",
+    "@trpc/server": "10.37.1",
+    "@types/node": "20.4.8",
+    "@types/react": "18.2.18",
+    "@types/react-dom": "18.2.7",
+    "autoprefixer": "10.4.14",
+    "clsx": "2.0.0",
+    "drizzle-orm": "0.28.2",
+    "eslint": "8.46.0",
+    "eslint-config-next": "13.4.13",
+    "next": "13.4.13",
+    "next-auth": "4.23.0",
+    "next-intl": "3.0.0-beta.10",
+    "postcss": "8.4.27",
+    "postgres": "3.3.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "7.45.4",
+    "superjson": "1.13.1",
+    "tailwindcss": "3.3.3",
+    "typescript": "5.1.6",
+    "zod": "3.21.4"
+  },
+  "devDependencies": {
+    "dotenv": "16.3.1",
+    "drizzle-kit": "0.19.12",
+    "server-only": "0.0.1"
+  }
+}

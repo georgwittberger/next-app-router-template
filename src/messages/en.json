@@ -1,0 +1,45 @@
+{
+  "common": {
+    "userLogin": {
+      "signInText": "Sign in",
+      "signOutText": "Sign out {userName}"
+    },
+    "home": {
+      "linkText": "Back to Homepage"
+    }
+  },
+  "home": {
+    "meta": {
+      "title": "ToDo App",
+      "description": "ToDo App built with Next.js"
+    },
+    "heading": "Welcome to Next ToDo App",
+    "todos": {
+      "linkText": "Go to ToDo list"
+    }
+  },
+  "signIn": {
+    "meta": {
+      "title": "Sign In",
+      "description": "Sign in for a personalized experience"
+    },
+    "heading": "Sign In",
+    "providerButtonText": "Sign in with {name}"
+  },
+  "todos": {
+    "meta": {
+      "title": "Your ToDos",
+      "description": "List of your personal todos"
+    },
+    "heading": "Your ToDos",
+    "signIn": "Please <link>sign in</link> to view your todos.",
+    "input": {
+      "placeholder": "Enter a title",
+      "submitButtonText": "Add to list"
+    },
+    "list": {
+      "loading": "Loading todos...",
+      "createdDate": "Created on {createdDate, date, ::yyyyMMddHHmmss}"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "version": "5",
+  "dialect": "pg",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "5",
+      "when": 1692100935085,
+      "tag": "0000_ancient_newton_destine",
+      "breakpoints": true
+    }
+  ]
+}
