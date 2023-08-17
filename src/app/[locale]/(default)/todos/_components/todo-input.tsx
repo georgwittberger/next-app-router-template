@@ -7,10 +7,7 @@ import { useRef, type ElementRef, type FC, type HTMLAttributes } from "react";
 import { useForm } from "react-hook-form";
 
 import { ActionButton } from "~/components/action-button";
-import {
-  addToDoInputSchema,
-  type AddToDoInputData,
-} from "~/server/api/todos/validation";
+import { addToDoInputSchema, type AddToDoInputData } from "~/schemas/todos";
 import { useAddToDo } from "../_hooks/use-add-todo";
 
 export const ToDoInput: FC<Omit<HTMLAttributes<HTMLElement>, "children">> = ({

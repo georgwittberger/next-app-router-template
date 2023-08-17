@@ -1,10 +1,10 @@
 import { desc, eq } from "drizzle-orm";
 import "server-only";
 
+import { addToDoInputSchema } from "~/schemas/todos";
 import { db } from "~/server/db/db";
 import { todos } from "~/server/db/schema";
 import { protectedProcedure, router } from "~/server/trpc";
-import { addToDoInputSchema } from "./validation";
 
 export const todosRouter = router({
   list: protectedProcedure.query(async ({ ctx: { session } }) => {
