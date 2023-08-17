@@ -39,8 +39,10 @@ The OAuth client is required to sign in with GitHub account.
 1. Create a file `.env.local` in the project directory with the following variables.
 
    ```bash
-   # Database connection string
+   # Database connection string for Next.js app
    DB_URL=postgres://username:password@localhost:5432/database
+   # Database connection string for database migration
+   DB_MIGRATE_URL=postgres://username:password@localhost:5432/database
    # Client ID of GitHub app
    GITHUB_CLIENT_ID=12345
    # Client secret of GitHub app
