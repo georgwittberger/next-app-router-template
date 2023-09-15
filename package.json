@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "next lint",
     "db:generate": "drizzle-kit generate:pg",
-    "db:migrate": "node ./src/server/db/migrate.mjs"
+    "db:migrate": "node ./src/server/db/migrate.mjs",
+    "db:run": "docker run --name postgres --rm -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=unsafeLocalhostPassword -e PGDATA=/var/lib/postgresql/data/pgdata -v /tmp:/var/lib/postgresql/data -p 5432:5432 -it postgres:16rc1-alpine"
   },
   "dependencies": {
     "@auth/core": "0.12.0",
