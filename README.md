@@ -20,8 +20,15 @@ Fullstack [Next.js](https://nextjs.org/) project template using App Router.
 
 The database is required for persistence of app data and NextAuth.js sessions.
 
-1. Set up a [PostgreSQL](https://www.postgresql.org/) installation.
-2. Create a database with a `public` schema.
+1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/).
+2. Create and run the database inside a docker container.
+
+   ```bash
+   pnpm db:run
+   ```
+
+> [!NOTE]
+> You can avoid using docker by setting up a [PostgreSQL](https://www.postgresql.org/) installation and creating a database with a `public` schema.
 
 ### Prepare GitHub OAuth Client
 
@@ -40,17 +47,17 @@ The OAuth client is required to sign in with GitHub account. You can swap provid
 
    ```bash
    # Database connection string for Next.js app
-   DB_URL=postgres://username:password@localhost:5432/database
+   DB_URL=postgres://postgres:unsafeLocalhostPassword@localhost:5432/postgres
    # Database connection string for database migration
-   DB_MIGRATE_URL=postgres://username:password@localhost:5432/database
+   DB_MIGRATE_URL=postgres://postgres:unsafeLocalhostPassword@localhost:5432/postgres
    # Client ID of GitHub app
-   GITHUB_CLIENT_ID=12345
+   GITHUB_CLIENT_ID="to-be-changed"
    # Client secret of GitHub app
-   GITHUB_CLIENT_SECRET=23456
+   GITHUB_CLIENT_SECRET="to-be-changed"
    # Absolute base URL of Next.js app
    NEXTAUTH_URL=http://localhost:3000
    # NextAuth.js secret, e.g. generate with "openssl rand -hex 32"
-   NEXTAUTH_SECRET=34567
+   NEXTAUTH_SECRET="to-be-changed"
    ```
 
 2. Install [pnpm](https://pnpm.io/) package manager.
