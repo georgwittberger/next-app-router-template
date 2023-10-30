@@ -7,6 +7,7 @@ Fullstack [Next.js](https://nextjs.org/) project template using App Router.
 - Based on new [Next.js](https://nextjs.org/) App Router and [Server Components](https://nextjs.org/docs/getting-started/react-essentials)
 - Internationalization (i18n) using [next-intl](https://next-intl-docs.vercel.app/) including support for Server Components
 - Type-safe keys for translation messages in React Components
+- Type-safe route pathnames for navigation
 - Client-side data fetching with end-to-end type-safety using [tRPC](https://trpc.io/) + [superjson](https://github.com/blitz-js/superjson) + [React Query](https://tanstack.com/query)
 - Client-side form validation using [React Hook Form](https://www.react-hook-form.com/) + [Zod](https://zod.dev/) schemas
 - Data persistence using [Drizzle ORM](https://orm.drizzle.team/) including database migrations
@@ -113,6 +114,7 @@ Open <http://localhost:3000> with your browser.
 - `src/i18n.ts`: Internationalization-specific configuration and helpers shared by the whole Next.js app (client-side and server-side).
 - `src/messages.d.ts`: Type declaration to enable type-safe keys for next-intl functions like `useTranslations`. Infers type from `src/messages/en.json`.
 - `src/middleware.ts`: Next.js middleware executed for every server request except API routes and static ressources. See below for more details.
+- `src/navigation.ts`: Internationalization-specific navigation configuration, esp. localized route pathnames.
 - `src/next-auth.d.ts`: Type declaration to augment NextAuth.js session interface to reflect user data provided by `session` callback in auth options.
 - `src/trpc.ts`: tRPC client based on React Query. Used for type-safe calls to tRPC procedures from React client components.
 
