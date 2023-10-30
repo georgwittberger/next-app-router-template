@@ -2,11 +2,10 @@
 
 import clsx from "clsx";
 import { useLocale } from "next-intl";
-import { usePathname } from "next-intl/client";
-import Link from "next-intl/link";
 import type { FC, HTMLAttributes } from "react";
 
 import { locales } from "~/i18n";
+import { Link, usePathname } from "~/navigation";
 
 export const LanguageSwitcher: FC<
   Omit<HTMLAttributes<HTMLElement>, "children">

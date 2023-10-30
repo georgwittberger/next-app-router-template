@@ -1,5 +1,5 @@
 import type { AdapterAccount } from "@auth/core/adapters";
-import { relations, type InferModel } from "drizzle-orm";
+import { relations } from "drizzle-orm";
 import {
   integer,
   pgTable,
@@ -25,7 +25,7 @@ export const usersRelations = relations(users, ({ many }) => ({
   todos: many(todos),
 }));
 
-export type User = InferModel<typeof users>;
+export type User = typeof users.$inferSelect;
 
 export const accounts = pgTable(
   "account",
@@ -49,7 +49,7 @@ export const accounts = pgTable(
   })
 );
 
-export type Account = InferModel<typeof accounts>;
+export type Account = typeof accounts.$inferSelect;
 
 export const sessions = pgTable("session", {
   sessionToken: text("sessionToken").notNull().primaryKey(),
@@ -59,7 +59,7 @@ export const sessions = pgTable("session", {
   expires: timestamp("expires", { mode: "date" }).notNull(),
 });
 
-export type Session = InferModel<typeof sessions>;
+export type Session = typeof sessions.$inferSelect;
 
 export const verificationTokens = pgTable(
   "verificationToken",
@@ -73,7 +73,7 @@ export const verificationTokens = pgTable(
   })
 );
 
-export type VerificationToken = InferModel<typeof verificationTokens>;
+export type VerificationToken = typeof verificationTokens.$inferSelect;
 
 /*
  * Application tables
@@ -97,4 +97,4 @@ export const todosRelations = relations(todos, ({ one }) => ({
   }),
 }));
 
-export type Todo = InferModel<typeof todos>;
+export type Todo = typeof todos.$inferSelect;

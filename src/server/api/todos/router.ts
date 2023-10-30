@@ -7,8 +7,8 @@ import { todos } from "~/server/db/schema";
 import { protectedProcedure, router } from "~/server/trpc";
 
 export const todosRouter = router({
-  list: protectedProcedure.query(async ({ ctx: { session } }) => {
-    return await db.query.todos.findMany({
+  list: protectedProcedure.query(({ ctx: { session } }) => {
+    return db.query.todos.findMany({
       where: eq(todos.userId, session.user.id),
       orderBy: [desc(todos.createdAt)],
     });
