@@ -8,6 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test": "vitest",
+    "test:run": "vitest run",
     "db:generate": "drizzle-kit generate:pg",
     "db:migrate": "node ./src/server/db/migrate.mjs",
     "db:run": "docker run --name postgres --rm -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=unsafeLocalhostPassword -e PGDATA=/var/lib/postgresql/data/pgdata -v /tmp:/var/lib/postgresql/data -p 5432:5432 -it postgres:16rc1-alpine"
@@ -42,8 +44,13 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.0.0",
+    "@vitejs/plugin-react": "^4.1.0",
     "dotenv": "^16.3.1",
     "drizzle-kit": "^0.19.13",
-    "server-only": "^0.0.1"
+    "jsdom": "^22.1.0",
+    "server-only": "^0.0.1",
+    "vitest": "^0.34.6"
   }
 }

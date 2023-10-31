@@ -22,6 +22,7 @@ export async function generateMetadata({
 
 const ToDosPage: FC<LocaleRouteParams> = () => {
   const t = useTranslations("todos");
+
   return (
     <>
       <h1 className="mb-8 text-2xl">{t("heading")}</h1>

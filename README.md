@@ -14,6 +14,7 @@ Fullstack [Next.js](https://nextjs.org/) project template using App Router.
 - Authentication using [NextAuth.js](https://next-auth.js.org/) with database session storage using [Drizzle ORM adapter](https://authjs.dev/reference/adapter/drizzle)
 - Personalized server-side rendering (using NextAuth.js session in Server Components)
 - Type-safe environment variables with validation using Zod (inspired by [Create T3 App](https://create.t3.gg/))
+- Component testing using [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
 
 ## Getting Started
 
@@ -96,6 +97,14 @@ Open <http://localhost:3000> with your browser.
    pnpm start
    ```
 
+### Run Tests
+
+Run component tests in watch mode.
+
+```bash
+pnpm test
+```
+
 ## Project Structure
 
 ### General Structure
@@ -108,6 +117,8 @@ Open <http://localhost:3000> with your browser.
 - `src/messages`: Contains next-intl translation files for the supported locales.
 - `src/schemas`: Contains Zod schemas shared by tRPC procedures and client-side form validation.
 - `src/server`: Contains server-side implementation like tRPC router, Drizzle database client and NextAuth.js configuration. See below for more details.
+- `src/test/setup.ts`: Setup script for Vitest component tests.
+- `src/test/utils.ts`: Test utilities for Vitest component tests.
 - `src/auth.ts`: Authentication-specific helpers shared by the whole Next.js app (client-side and server-side).
 - `src/env.mjs`: Provides type-safe access to environment variables. Variables must be declared here with appropriate Zod schema.
 - `src/globals.css`: Global stylesheet loaded by root layouts.

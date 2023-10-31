@@ -1,16 +1,27 @@
 "use client";
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useState, type FC, type PropsWithChildren } from "react";
+import {
+  useState,
+  type ComponentProps,
+  type FC,
+  type PropsWithChildren,
+} from "react";
 import superjson from "superjson";
 
 import { trpc } from "~/trpc";
 import { createLink } from "../../api/trpc/[trpc]/link";
 
-export const TrpcProvider: FC<PropsWithChildren> = ({ children }) => {
+type TrpcProviderProps = PropsWithChildren<{
+  client?: ComponentProps<typeof trpc.Provider>["client"];
+}>;
+
+export const TrpcProvider: FC<TrpcProviderProps> = ({ client, children }) => {
   const [queryClient] = useState(() => new QueryClient());
-  const [trpcClient] = useState(() =>
-    trpc.createClient({ links: [createLink()], transformer: superjson })
+  const [trpcClient] = useState(
+    () =>
+      client ??
+      trpc.createClient({ links: [createLink()], transformer: superjson })
   );
 
   return (
