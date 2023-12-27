@@ -109,6 +109,7 @@ pnpm test
 
 ### General Structure
 
+- `.idea`: Project-specific configuration for WebStorm.
 - `.vscode`: Project-specific configuration for Visual Studio Code. Contains a launch configuration for debugging in Chrome.
 - `drizzle`: Drizzle ORM migrations directory. Should only be modified using [Drizzle Kit](https://orm.drizzle.team/kit-docs/overview) commands.
 - `public`: Public assets like favicons to include in Next.js app.
@@ -141,9 +142,13 @@ pnpm test
   - `src/app/[locale]/(default)/layout.tsx`: Root layout component for all other pages.
   - `src/app/[locale]/(default)/page.tsx`: Home page component.
   - `src/app/[locale]/(default)/todos`: Contains todos page component and its related React components and hooks.
+  - `src/app/[locale]/[...rest]/page.tsx`: Catch-all page component to display "not found" page on unmatched routes.
+  - `src/app/[locale]/not-found.tsx`: Localized "not found" error page component.
 - `src/app/api`: Base route for all API endpoints of the app.
   - `src/app/api/auth/[...nextauth]/route.ts`: Route handler for NextAuth.js to process authentication.
   - `src/app/api/trpc/[trpc]/route.ts`: Route handler for tRPC to process calls to tRPC procedures.
+- `src/app/layout.tsx`: Root layout component. Required as wrapper for error pages.
+- `src/app/not-found.tsx`: Language-neutral "not found" error page component, e.g. when navigating to unsupported locale.
 
 ### Server Directory Structure
 

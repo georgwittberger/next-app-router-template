@@ -18,6 +18,12 @@
       "linkText": "Zur ToDo Liste"
     }
   },
+  "notFound": {
+    "meta": {
+      "title": "Seite nicht gefunden"
+    },
+    "heading": "Seite nicht gefunden"
+  },
   "signIn": {
     "meta": {
       "title": "Anmeldung",

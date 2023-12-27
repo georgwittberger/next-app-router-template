@@ -18,6 +18,12 @@
       "linkText": "Go to ToDo list"
     }
   },
+  "notFound": {
+    "meta": {
+      "title": "Page not found"
+    },
+    "heading": "Page not found"
+  },
   "signIn": {
     "meta": {
       "title": "Sign In",

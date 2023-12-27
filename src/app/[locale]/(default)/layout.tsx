@@ -2,16 +2,15 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import type { FC, PropsWithChildren } from "react";
 
-import "~/globals.css";
 import { Header } from "../_components/header";
 import { PageLayout } from "../_components/page-layout";
 import type { LocaleRouteParams } from "../types";
 
-type DefaultRootLayoutProps = PropsWithChildren<LocaleRouteParams>;
+type DefaultLocaleLayoutProps = PropsWithChildren<LocaleRouteParams>;
 
 export async function generateMetadata({
   params: { locale },
-}: DefaultRootLayoutProps): Promise<Metadata> {
+}: DefaultLocaleLayoutProps): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "home" });
   return {
     title: {
@@ -21,7 +20,7 @@ export async function generateMetadata({
   };
 }
 
-const DefaultRootLayout: FC<DefaultRootLayoutProps> = ({
+const DefaultLocaleLayout: FC<DefaultLocaleLayoutProps> = ({
   children,
   params: { locale },
 }) => {
@@ -32,4 +31,4 @@ const DefaultRootLayout: FC<DefaultRootLayoutProps> = ({
   );
 };
 
-export default DefaultRootLayout;
+export default DefaultLocaleLayout;

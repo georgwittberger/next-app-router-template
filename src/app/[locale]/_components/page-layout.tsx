@@ -15,8 +15,8 @@ type PageLayoutProps = PropsWithChildren<{
 
 export const PageLayout: FC<PageLayoutProps> = async ({
   children,
-  header,
   locale,
+  header,
 }) => {
   const timeZone = getTimeZone(locale);
   const messages = await getMessages({ locale });

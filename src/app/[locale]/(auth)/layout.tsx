@@ -2,15 +2,14 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import type { FC, PropsWithChildren } from "react";
 
-import "~/globals.css";
 import { PageLayout } from "../_components/page-layout";
 import type { LocaleRouteParams } from "../types";
 
-type AuthRootLayoutProps = PropsWithChildren<LocaleRouteParams>;
+type AuthLocaleLayoutProps = PropsWithChildren<LocaleRouteParams>;
 
 export async function generateMetadata({
   params: { locale },
-}: AuthRootLayoutProps): Promise<Metadata> {
+}: AuthLocaleLayoutProps): Promise<Metadata> {
   const t = await getTranslations({ locale, namespace: "home" });
   return {
     title: {
@@ -20,7 +19,7 @@ export async function generateMetadata({
   };
 }
 
-const AuthRootLayout: FC<AuthRootLayoutProps> = async ({
+const AuthLocaleLayout: FC<AuthLocaleLayoutProps> = async ({
   children,
   params: { locale },
 }) => {
@@ -31,4 +30,4 @@ const AuthRootLayout: FC<AuthRootLayoutProps> = async ({
   );
 };
 
-export default AuthRootLayout;
+export default AuthLocaleLayout;
