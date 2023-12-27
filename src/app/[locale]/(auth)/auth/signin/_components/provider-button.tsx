@@ -17,7 +17,7 @@ export const ProviderButton: FC<ProviderButtonProps> = ({ provider }) => {
   const searchParams = useSearchParams();
 
   const handleClick = () => {
-    signIn(provider.id, {
+    void signIn(provider.id, {
       callbackUrl: searchParams.get("callbackUrl") || `/${locale}`,
     });
   };

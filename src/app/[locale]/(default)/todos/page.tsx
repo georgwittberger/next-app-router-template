@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { useTranslations } from "next-intl";
-import { getTranslator } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import type { FC } from "react";
 
 import { AuthRequired } from "~/components/auth-required";
@@ -11,9 +11,9 @@ import { ToDoList } from "./_components/todo-list";
 import { ToDoSigninFallback } from "./_components/todo-signin-fallback";
 
 export async function generateMetadata({
-  params,
+  params: { locale },
 }: LocaleRouteParams): Promise<Metadata> {
-  const t = await getTranslator(params.locale, "todos");
+  const t = await getTranslations({ locale, namespace: "todos" });
   return {
     title: t("meta.title"),
     description: t("meta.description"),

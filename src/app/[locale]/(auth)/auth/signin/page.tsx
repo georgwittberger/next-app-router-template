@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
 import { getProviders } from "next-auth/react";
-import { getTranslator } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import type { FC } from "react";
 
 import type { LocaleRouteParams } from "../../../types";
 import { SignInPageContent } from "./_components/signin-page-content";
 
 export async function generateMetadata({
-  params,
+  params: { locale },
 }: LocaleRouteParams): Promise<Metadata> {
-  const t = await getTranslator(params.locale, "signIn");
+  const t = await getTranslations({ locale, namespace: "signIn" });
   return {
     title: t("meta.title"),
     description: t("meta.description"),

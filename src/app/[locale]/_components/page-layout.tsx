@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import { NextIntlClientProvider, useLocale } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import type { FC, PropsWithChildren, ReactNode } from "react";
 
@@ -8,13 +8,18 @@ import { authOptions } from "~/server/auth";
 import { AuthProvider } from "../_providers/auth-provider";
 import { TrpcProvider } from "../_providers/trpc-provider";
 
-type PageLayoutProps = PropsWithChildren<{ header?: ReactNode }>;
+type PageLayoutProps = PropsWithChildren<{
+  locale: string;
+  header?: ReactNode;
+}>;
 
-export const PageLayout: FC<PageLayoutProps> = async ({ children, header }) => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const locale = useLocale();
+export const PageLayout: FC<PageLayoutProps> = async ({
+  children,
+  header,
+  locale,
+}) => {
   const timeZone = getTimeZone(locale);
-  const messages = await getMessages(locale);
+  const messages = await getMessages({ locale });
   const session = await getServerSession(authOptions);
 
   return (

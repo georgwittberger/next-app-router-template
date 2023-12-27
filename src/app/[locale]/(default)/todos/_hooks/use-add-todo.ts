@@ -7,7 +7,7 @@ export const useAddToDo = () => {
   const queryClient = useQueryClient();
   return trpc.todos.add.useMutation({
     onSettled: () => {
-      queryClient.invalidateQueries(getQueryKey(trpc.todos.list));
+      void queryClient.invalidateQueries(getQueryKey(trpc.todos.list));
     },
   });
 };

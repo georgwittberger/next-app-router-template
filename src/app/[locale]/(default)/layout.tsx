@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslator } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import type { FC, PropsWithChildren } from "react";
 
 import "~/globals.css";
@@ -7,10 +7,12 @@ import { Header } from "../_components/header";
 import { PageLayout } from "../_components/page-layout";
 import type { LocaleRouteParams } from "../types";
 
+type DefaultRootLayoutProps = PropsWithChildren<LocaleRouteParams>;
+
 export async function generateMetadata({
-  params,
-}: LocaleRouteParams): Promise<Metadata> {
-  const t = await getTranslator(params.locale, "home");
+  params: { locale },
+}: DefaultRootLayoutProps): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "home" });
   return {
     title: {
       default: t("meta.title"),
@@ -19,11 +21,12 @@ export async function generateMetadata({
   };
 }
 
-type DefaultRootLayoutProps = PropsWithChildren<LocaleRouteParams>;
-
-const DefaultRootLayout: FC<DefaultRootLayoutProps> = ({ children }) => {
+const DefaultRootLayout: FC<DefaultRootLayoutProps> = ({
+  children,
+  params: { locale },
+}) => {
   return (
-    <PageLayout header={<Header className="mb-8" />}>
+    <PageLayout locale={locale} header={<Header className="mb-8" />}>
       <main className="container mx-auto px-4">{children}</main>
     </PageLayout>
   );

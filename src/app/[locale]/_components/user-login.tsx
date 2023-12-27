@@ -13,8 +13,8 @@ export const UserLogin: FC<
   const { data: session } = useSession();
 
   const handleClick = () => {
-    if (session) signOut({ callbackUrl: "/" });
-    else signIn();
+    if (session) void signOut({ callbackUrl: "/" });
+    else void signIn();
   };
 
   return (
