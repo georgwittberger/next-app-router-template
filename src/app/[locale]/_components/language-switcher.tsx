@@ -2,13 +2,13 @@
 
 import clsx from "clsx";
 import { useLocale } from "next-intl";
-import type { FC, HTMLAttributes } from "react";
+import type { ComponentPropsWithoutRef, FC } from "react";
 
 import { locales } from "~/i18n";
 import { Link, usePathname } from "~/navigation";
 
 export const LanguageSwitcher: FC<
-  Omit<HTMLAttributes<HTMLElement>, "children">
+  Omit<ComponentPropsWithoutRef<"nav">, "children">
 > = (props) => {
   const pathname = usePathname();
   const currentLocale = useLocale();

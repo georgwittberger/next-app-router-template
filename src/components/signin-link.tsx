@@ -2,10 +2,10 @@
 
 import clsx from "clsx";
 import { signIn } from "next-auth/react";
-import type { FC, HTMLAttributes } from "react";
+import type { ComponentPropsWithoutRef, FC } from "react";
 
 export const SigninLink: FC<
-  Omit<HTMLAttributes<HTMLButtonElement>, "type" | "onClick">
+  Omit<ComponentPropsWithoutRef<"button">, "type" | "onClick">
 > = ({ className, children, ...props }) => {
   return (
     <button
