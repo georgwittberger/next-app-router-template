@@ -14,7 +14,7 @@ Fullstack [Next.js](https://nextjs.org/) project template using App Router.
 - Authentication using [NextAuth.js](https://next-auth.js.org/) with database session storage using [Drizzle ORM adapter](https://authjs.dev/reference/adapter/drizzle)
 - Personalized server-side rendering (using NextAuth.js session in Server Components)
 - Type-safe environment variables with validation using Zod (inspired by [Create T3 App](https://create.t3.gg/))
-- Component testing using [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) (⚠️ limited [support for RSCs](https://github.com/testing-library/react-testing-library/issues/1209#issuecomment-1569813305))
+- Component testing using [Vitest](https://vitest.dev/), [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) and [MSW](https://mswjs.io/) (⚠️ limited [support for RSCs](https://github.com/testing-library/react-testing-library/issues/1209#issuecomment-1569813305))
 
 ## Getting Started
 
@@ -124,6 +124,7 @@ pnpm test:run
 - `src/messages`: Contains next-intl translation files for the supported locales.
 - `src/schemas`: Contains Zod schemas shared by tRPC procedures and client-side form validation.
 - `src/server`: Contains server-side implementation like tRPC router, Drizzle database client and NextAuth.js configuration. See below for more details.
+- `src/test/server.ts`: Mock server setup and helper to stub tRPC procedures.
 - `src/test/setup.ts`: Setup script for Vitest component tests.
 - `src/test/utils.ts`: Test utilities for Vitest component tests.
 - `src/auth.ts`: Authentication-specific helpers shared by the whole Next.js app (client-side and server-side).

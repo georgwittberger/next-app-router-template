@@ -18,7 +18,7 @@ export const ToDoList: FC<Omit<HTMLAttributes<HTMLElement>, "children">> = ({
       <div
         className={clsx(
           "px-4 py-2 rounded border border-gray-200 bg-gray-200 text-lg",
-          className
+          className,
         )}
         {...props}
       >
@@ -28,7 +28,11 @@ export const ToDoList: FC<Omit<HTMLAttributes<HTMLElement>, "children">> = ({
   }
 
   return (
-    <ul className={clsx("grid gap-4", className)} {...props}>
+    <ul
+      data-testid="todo-list"
+      className={clsx("grid gap-4", className)}
+      {...props}
+    >
       {todos?.map((todo) => (
         <li
           key={todo.id}
