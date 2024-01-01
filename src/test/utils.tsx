@@ -2,7 +2,7 @@ import { render, type RenderOptions } from "@testing-library/react";
 import { httpBatchLink } from "@trpc/react-query";
 import type { Session } from "next-auth";
 import { NextIntlClientProvider } from "next-intl";
-import type { FC, PropsWithChildren, ReactElement } from "react";
+import { FC, PropsWithChildren, ReactElement, Suspense } from "react";
 import superjson from "superjson";
 
 import { AuthProvider } from "~/app/[locale]/_providers/auth-provider";
@@ -25,23 +25,25 @@ const createWrapper = (options?: CustomRenderOptions): FC<PropsWithChildren> =>
       transformer: superjson,
     });
     return (
-      <AuthProvider session={session}>
-        <TrpcProvider client={trpcClient}>
-          <NextIntlClientProvider
-            locale={testLocale}
-            timeZone={getTimeZone(testLocale)}
-            messages={messages}
-          >
-            {children}
-          </NextIntlClientProvider>
-        </TrpcProvider>
-      </AuthProvider>
+      <Suspense>
+        <AuthProvider session={session}>
+          <TrpcProvider client={trpcClient}>
+            <NextIntlClientProvider
+              locale={testLocale}
+              timeZone={getTimeZone(testLocale)}
+              messages={messages}
+            >
+              {children}
+            </NextIntlClientProvider>
+          </TrpcProvider>
+        </AuthProvider>
+      </Suspense>
     );
   };
 
 const customRender = (
   ui: ReactElement,
-  options?: Omit<RenderOptions, "wrapper"> & CustomRenderOptions
+  options?: Omit<RenderOptions, "wrapper"> & CustomRenderOptions,
 ) => render(ui, { wrapper: createWrapper(options), ...options });
 
 export * from "@testing-library/react";

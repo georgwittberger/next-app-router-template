@@ -14,7 +14,7 @@ Fullstack [Next.js](https://nextjs.org/) project template using App Router.
 - Authentication using [NextAuth.js](https://next-auth.js.org/) with database session storage using [Drizzle ORM adapter](https://authjs.dev/reference/adapter/drizzle)
 - Personalized server-side rendering (using NextAuth.js session in Server Components)
 - Type-safe environment variables with validation using Zod (inspired by [Create T3 App](https://create.t3.gg/))
-- Component testing using [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+- Component testing using [Vitest](https://vitest.dev/) and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro) (⚠️ limited [support for RSCs](https://github.com/testing-library/react-testing-library/issues/1209#issuecomment-1569813305))
 
 ## Getting Started
 
@@ -25,7 +25,7 @@ The database is required for persistence of app data and NextAuth.js sessions.
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/).
 2. Create and run the database inside a docker container.
 
-   ```bash
+   ```shell
    pnpm db:run
    ```
 
@@ -47,7 +47,7 @@ The OAuth client is required to sign in with GitHub account. You can swap provid
 
 1. Create a file `.env.local` in the project directory with the following variables.
 
-   ```bash
+   ```shell
    # Database connection string for Next.js app
    DB_URL=postgres://postgres:unsafeLocalhostPassword@localhost:5432/postgres
    # Database connection string for database migration
@@ -65,19 +65,19 @@ The OAuth client is required to sign in with GitHub account. You can swap provid
 2. Install [pnpm](https://pnpm.io/) package manager.
 3. Run dependencies installation in the project directory.
 
-   ```bash
+   ```shell
    pnpm install
    ```
 
 4. Run database migrations in the project directory.
 
-   ```bash
+   ```shell
    pnpm db:migrate
    ```
 
 5. Run development server in the project directory.
 
-   ```bash
+   ```shell
    pnpm dev
    ```
 
@@ -87,13 +87,13 @@ Open <http://localhost:3000> with your browser.
 
 1. Run production build in the project directory.
 
-   ```bash
+   ```shell
    pnpm build
    ```
 
 2. Run production server in the project directory.
 
-   ```bash
+   ```shell
    pnpm start
    ```
 
@@ -101,8 +101,14 @@ Open <http://localhost:3000> with your browser.
 
 Run component tests in watch mode.
 
-```bash
+```shell
 pnpm test
+```
+
+Or execute one single test run.
+
+```shell
+pnpm test:run
 ```
 
 ## Project Structure
